@@ -51,6 +51,11 @@ public class MyDodo extends Dodo
         }
     }
 
+    
+    public void turn180(){
+    turnRight();
+    turnRight();    
+    }
     /**
      * Hatches the egg in the current cell by removing
      * the egg from the cell.
