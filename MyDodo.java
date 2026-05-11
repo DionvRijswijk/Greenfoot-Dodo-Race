@@ -46,7 +46,7 @@ public class MyDodo extends Dodo
     public boolean canMove() {
         if ( borderAhead() ){
             return false;
-        } else {
+        } else{
             return true;
         }
     }
@@ -118,7 +118,11 @@ public class MyDodo extends Dodo
     public void walkToWorldEdgePrintingCoordinates( ){
         while( ! borderAhead() ){
             // print coordinates
+             System.out.println("X");
+             System.out.println("Y");
             move();
+            if (borderAhead() ){
+            break;}
         }
     }
 
