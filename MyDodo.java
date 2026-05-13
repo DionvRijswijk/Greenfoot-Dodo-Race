@@ -146,11 +146,16 @@ public class MyDodo extends Dodo
     } 
     
     public void grainAhead(){
-    if (!borderAhead() ){
+        move();
+    if (!borderAhead()||!fenceAhead() ){
+    
         step();
         turn180();
         step();
+        step();
         turn180();
+        
+    
     }
     else { turn180();
            turn180();
@@ -167,5 +172,9 @@ public class MyDodo extends Dodo
         turnRight();
         move();
         turnLeft();
-    }}
+    } 
+    else {
+        
+    }
+    }
     }
