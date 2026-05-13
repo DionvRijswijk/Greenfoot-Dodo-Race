@@ -145,4 +145,16 @@ public class MyDodo extends Dodo
             return true;
         }
     } 
+    
+    public void grainAhead(){
+    if (!borderAhead() ){
+        step();
+        turn180();
+        step();
+        turn180();
+    }
+    else { turn180();
+           turn180();
+}
+    }
     }
