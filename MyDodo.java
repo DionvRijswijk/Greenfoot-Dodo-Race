@@ -44,11 +44,10 @@ public class MyDodo extends Dodo
      *                      (an obstruction or end of world ahead)
      */
     public boolean canMove() {
-        if ( borderAhead() ){
-            return false;
-        } else{
-            return true;
-        }
+        if ( borderAhead() || fenceAhead() ){
+            return false;}
+        
+        else { return true;}
     }
 
     
@@ -116,7 +115,7 @@ public class MyDodo extends Dodo
      */
 
     public void walkToWorldEdgePrintingCoordinates( ){
-        while( ! borderAhead() ){
+        while( canMove()){
             // print coordinates
              System.out.println(getX ());
              System.out.println(getY ());
