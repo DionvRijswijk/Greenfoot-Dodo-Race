@@ -156,4 +156,16 @@ public class MyDodo extends Dodo
            turn180();
 }
     }
+    
+    public void climbOverFence(){
+    if (fenceAhead()){
+        turnLeft();
+        move();
+        turnRight();
+        move();
+        move();
+        turnRight();
+        move();
+        turnLeft();
+    }}
     }
