@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MyDodo extends Dodo
 {
     private int myNrOfEggsHatched;
-    
+
     public MyDodo() {
         super( EAST );
         myNrOfEggsHatched = 0;
@@ -46,15 +46,17 @@ public class MyDodo extends Dodo
     public boolean canMove() {
         if ( borderAhead() || fenceAhead() ){
             return false;}
-        
+
         else { return true;}
     }
-
-    
+/**
+ * Turns the dodo 180 degrees, making them face the other way
+ */
     public void turn180(){
-    turnRight();
-    turnRight();    
+        turnRight();
+        turnRight();    
     }
+
     /**
      * Hatches the egg in the current cell by removing
      * the egg from the cell.
@@ -71,7 +73,7 @@ public class MyDodo extends Dodo
             showError( "There was no egg in this cell" );
         }
     }
-    
+
     /**
      * Returns the number of eggs Dodo has hatched so far.
      * 
@@ -80,7 +82,7 @@ public class MyDodo extends Dodo
     public int getNrOfEggsHatched() {
         return myNrOfEggsHatched;
     }
-    
+
     /**
      * Move given number of cells forward in the current direction.
      * 
@@ -100,11 +102,9 @@ public class MyDodo extends Dodo
                 break;
             } 
         }
-        
+
     }
 
-    
-    
     
     /**
      * Walks to edge of the world printing the coordinates at each step
@@ -117,14 +117,24 @@ public class MyDodo extends Dodo
     public void walkToWorldEdgePrintingCoordinates( ){
         while( canMove()){
             // print coordinates
-             System.out.println(getX ());
-             System.out.println(getY ());
+            System.out.println(getX ());
+            System.out.println(getY ());
             move();
             if (borderAhead() ){
-            break;}
+                break;}
         }
     }
-
+/**
+ * Makes the dodo walk to whatever border shes facing
+ */
+    public void walkToWorldEdge( ){
+        while( canMove()){
+            move();
+            if (borderAhead() ){
+                break;}
+        }
+    }
+    
     /**
      * Test if Dodo can lay an egg.
      *          (there is not already an egg in the cell)
@@ -139,42 +149,88 @@ public class MyDodo extends Dodo
 
     public boolean canLayEgg( ){
         if( onEgg() ){
-             return false;
+            return false;
         }else{
             return true;
         }
     } 
-    
+/**
+ * Makes the dodo hit a move if there isnt an obstacle or border in the way
+ */
     public void grainAhead(){
         move();
-    if (!borderAhead()||!fenceAhead() ){
-    
-        step();
-        turn180();
-        step();
-        step();
-        turn180();
-        
-    
+        if (!borderAhead()||!fenceAhead() ){
+
+            step();
+            turn180();
+            step();
+            step();
+            turn180();
+
+        }
+        else { turn180();
+            turn180();
+        }
     }
-    else { turn180();
-           turn180();
-}
-    }
-    
+/**
+ * Makes the dodo climb over a fence if there is one ahead of her
+ * may not work if there is an obstacle in the way
+ */
     public void climbOverFence(){
-    if (fenceAhead()){
-        turnLeft();
-        move();
-        turnRight();
-        move();
-        move();
-        turnRight();
-        move();
-        turnLeft();
-    } 
-    else {
-        
+        if (fenceAhead()){
+            turnLeft();
+            move();
+            turnRight();
+            move();
+            move();
+            turnRight();
+            move();
+            turnLeft();
+        } 
+        else {
+
+        }
     }
+    /**
+     * makes the dodo move forward until they reach an egg 
+     * (highly recommended to actually put an egg infront of her, else the-
+     * program will crash
+     */
+    public void goToEgg(){
+        while (!onEgg()){
+            move();
+        }
+
     }
+    /**
+     * Makes the dodo turn around and walk to the border
+     */
+    public void goBackToStartOfRowAndFaceBack(){
+    turn180();
+    while (!borderAhead()){
+    move();}
+    if (borderAhead()) {turn180();}
     }
+    
+    /**
+     * Makes the dodo walk to the edge of the world while climbing over 
+     * any fences
+     */
+    public void walkToWorldEdgeClimbingOverFences(){
+        while( canMove()){
+            move();
+            if (borderAhead() ){
+                break;}
+                if(fenceAhead()){
+                    turnLeft();
+            move();
+            turnRight();
+            move();
+            move();
+            turnRight();
+            move();
+            turnLeft();
+                }
+        }
+    }
+}
