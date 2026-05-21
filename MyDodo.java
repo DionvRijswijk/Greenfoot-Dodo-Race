@@ -49,9 +49,10 @@ public class MyDodo extends Dodo
 
         else { return true;}
     }
-/**
- * Turns the dodo 180 degrees, making them face the other way
- */
+
+    /**
+     * Turns the dodo 180 degrees, making them face the other way
+     */
     public void turn180(){
         turnRight();
         turnRight();    
@@ -105,7 +106,6 @@ public class MyDodo extends Dodo
 
     }
 
-    
     /**
      * Walks to edge of the world printing the coordinates at each step
      * 
@@ -124,9 +124,10 @@ public class MyDodo extends Dodo
                 break;}
         }
     }
-/**
- * Makes the dodo walk to whatever border shes facing
- */
+
+    /**
+     * Makes the dodo walk to whatever border shes facing
+     */
     public void walkToWorldEdge( ){
         while( canMove()){
             move();
@@ -134,7 +135,7 @@ public class MyDodo extends Dodo
                 break;}
         }
     }
-    
+
     /**
      * Test if Dodo can lay an egg.
      *          (there is not already an egg in the cell)
@@ -154,9 +155,10 @@ public class MyDodo extends Dodo
             return true;
         }
     } 
-/**
- * Makes the dodo hit a move if there isnt an obstacle or border in the way
- */
+
+    /**
+     * Makes the dodo hit a move if there isnt an obstacle or border in the way
+     */
     public void grainAhead(){
         move();
         if (!borderAhead()||!fenceAhead() ){
@@ -172,10 +174,11 @@ public class MyDodo extends Dodo
             turn180();
         }
     }
-/**
- * Makes the dodo climb over a fence if there is one ahead of her
- * may not work if there is an obstacle in the way
- */
+
+    /**
+     * Makes the dodo climb over a fence if there is one ahead of her
+     * may not work if there is an obstacle in the way
+     */
     public void climbOverFence(){
         if (fenceAhead()){
             turnLeft();
@@ -191,6 +194,7 @@ public class MyDodo extends Dodo
 
         }
     }
+
     /**
      * makes the dodo move forward until they reach an egg 
      * (highly recommended to actually put an egg infront of her, else the-
@@ -202,16 +206,17 @@ public class MyDodo extends Dodo
         }
 
     }
+
     /**
      * Makes the dodo turn around and walk to the border
      */
     public void goBackToStartOfRowAndFaceBack(){
-    turn180();
-    while (!borderAhead()){
-    move();}
-    if (borderAhead()) {turn180();}
+        turn180();
+        while (!borderAhead()){
+            move();}
+        if (borderAhead()) {turn180();}
     }
-    
+
     /**
      * Makes the dodo walk to the edge of the world while climbing over 
      * any fences
@@ -221,16 +226,32 @@ public class MyDodo extends Dodo
             move();
             if (borderAhead() ){
                 break;}
-                if(fenceAhead()){
-                    turnLeft();
-            move();
-            turnRight();
-            move();
-            move();
-            turnRight();
-            move();
-            turnLeft();
-                }
+            if(fenceAhead()){
+                turnLeft();
+                move();
+                turnRight();
+                move();
+                move();
+                turnRight();
+                move();
+                turnLeft();
+            }
         }
+    }
+
+    /**
+     * Makes the dodo walk to the end of the world while picking up any grain
+     * in the way
+     */
+    public void picksUpGrainAndPrintsCoordinates(){
+        while (canMove()){
+            if (onGrain()){
+                System.out.println(getX ());
+                System.out.println(getY ());
+                pickUpGrain();
+            }
+            move();
+        }
+
     }
 }
