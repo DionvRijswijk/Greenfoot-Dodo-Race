@@ -263,4 +263,13 @@ public class MyDodo extends Dodo
     move();
     turn180();
     }
+    /**
+     * Makes the dodo walk to the end of the world while laying eggs in any unoccupied nests
+     */
+    public void worldEmptyNestsTopRow(){
+    while(canMove()){
+        if (onNest()){
+        layEgg();}
+    move();}
+    }
 }
