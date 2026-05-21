@@ -254,4 +254,13 @@ public class MyDodo extends Dodo
         }
 
     }
+    /**
+     * moves the dodo back a space by turning them around, then making her
+     * move and turn around again
+     */
+    public void stepOneCellBackwards(){
+    turn180();
+    move();
+    turn180();
+    }
 }
