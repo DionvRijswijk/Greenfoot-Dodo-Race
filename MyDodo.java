@@ -274,9 +274,10 @@ public class MyDodo extends Dodo
                 layEgg();}
             move();}
     }
-/**
- * Makes the dodo climb over fences while laying an egg in the first nest she comes across
- */
+
+    /**
+     * Makes the dodo climb over fences while laying an egg in the first nest she comes across
+     */
     public void walkToWorldEdgeClimbingOverFencesWhileLayingEggs(){
         while( canMove()){
             move();
@@ -297,26 +298,21 @@ public class MyDodo extends Dodo
                 break;}
         }
     }
+
     public void walkToWorldEdgeClimbingOverTallerFences(){
-        while( canMove()){
-            move();
-            if (borderAhead() ){
-                break;}
-            while(fenceAhead()){
-                turnLeft();
+        while (canMove()){
+            turnRight();
+            if (!fenceAhead()){
                 move();
                 turnRight();
-                               //move();
-                //move();
-                //turnRight();
-                //move();
-                //turnLeft();
             }
-            while (!fenceAhead() || !borderAhead()){
-                move();
-            }
-            if (borderAhead() ){
-                break;}
+                if (fenceAhead()){
+                    turnLeft();
+                    move();
+                }
+            if (onEgg()){
+            break;}
         }
     }
+
 }
