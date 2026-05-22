@@ -298,13 +298,19 @@ public class MyDodo extends Dodo
                 break;}
         }
     }
-
+/**
+ * Makes the dodo loop around a fenced area until he finds an egg (if there isnt an egg, she'll go on forever
+ */
     public void walkToWorldEdgeClimbingOverTallerFences(){
         while (canMove()){
             turnRight();
             if (!fenceAhead()){
                 move();
                 turnRight();
+            }
+            if (fenceAhead() && !canMove()){
+                turnLeft();
+                move();
             }
                 if (fenceAhead()){
                     turnLeft();

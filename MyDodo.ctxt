@@ -40,6 +40,7 @@ comment20.target=void\ walkToWorldEdgeClimbingOverFencesWhileLayingEggs()
 comment20.text=\r\n\ Makes\ the\ dodo\ climb\ over\ fences\ while\ laying\ an\ egg\ in\ the\ first\ nest\ she\ comes\ across\r\n
 comment21.params=
 comment21.target=void\ walkToWorldEdgeClimbingOverTallerFences()
+comment21.text=\r\n\ Makes\ the\ dodo\ loop\ around\ a\ fenced\ area\ until\ he\ finds\ an\ egg\ (if\ there\ isnt\ an\ egg,\ she'll\ go\ on\ forever\r\n
 comment3.params=
 comment3.target=void\ move()
 comment3.text=\r\n\ Move\ one\ cell\ forward\ in\ the\ current\ direction.\r\n\ \r\n\ <P>\ Initial\:\ Dodo\ is\ somewhere\ in\ the\ world\r\n\ <P>\ Final\:\ If\ possible,\ Dodo\ has\ moved\ forward\ one\ cell\r\n\r\n
