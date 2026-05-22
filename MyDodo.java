@@ -254,22 +254,69 @@ public class MyDodo extends Dodo
         }
 
     }
+
     /**
      * moves the dodo back a space by turning them around, then making her
      * move and turn around again
      */
     public void stepOneCellBackwards(){
-    turn180();
-    move();
-    turn180();
+        turn180();
+        move();
+        turn180();
     }
+
     /**
      * Makes the dodo walk to the end of the world while laying eggs in any unoccupied nests
      */
     public void worldEmptyNestsTopRow(){
-    while(canMove()){
-        if (onNest()){
-        layEgg();}
-    move();}
+        while(canMove()){
+            if (onNest()){
+                layEgg();}
+            move();}
+    }
+/**
+ * Makes the dodo climb over fences while laying an egg in the first nest she comes across
+ */
+    public void walkToWorldEdgeClimbingOverFencesWhileLayingEggs(){
+        while( canMove()){
+            move();
+            if (borderAhead() ){
+                break;}
+            if(fenceAhead()){
+                turnLeft();
+                move();
+                turnRight();
+                move();
+                move();
+                turnRight();
+                move();
+                turnLeft();
+            }
+            if (onNest()){
+                layEgg();
+                break;}
+        }
+    }
+    public void walkToWorldEdgeClimbingOverTallerFences(){
+        while( canMove()){
+            move();
+            if (borderAhead() ){
+                break;}
+            while(fenceAhead()){
+                turnLeft();
+                move();
+                turnRight();
+                               //move();
+                //move();
+                //turnRight();
+                //move();
+                //turnLeft();
+            }
+            while (!fenceAhead() || !borderAhead()){
+                move();
+            }
+            if (borderAhead() ){
+                break;}
+        }
     }
 }
