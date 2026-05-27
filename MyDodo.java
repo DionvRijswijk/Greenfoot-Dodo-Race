@@ -320,7 +320,9 @@ public class MyDodo extends Dodo
             break;}
         }
     }
-
+/**
+ * Makes the dodo follow a trail of eggs to her nest while picking up the eggs, to prevent her from going in loops
+ */
     public void eggTrailToNest(){
     while (!onNest()){
         if(onEgg()){
@@ -333,4 +335,15 @@ public class MyDodo extends Dodo
 }
     
 }
+/**
+ * Makes the dodo navigate the maze by moving in the first direction it can see
+ * Might give the message "im stuck" sometimes
+ */
+public void navigateMaze(){
+while(!borderAhead()){
+move();
+if (fenceAhead()){
+turnRight();
+if (fenceAhead()){turn180();}}
+if (onNest()){break;}}}
 }
