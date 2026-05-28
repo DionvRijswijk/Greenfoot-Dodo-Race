@@ -298,9 +298,10 @@ public class MyDodo extends Dodo
                 break;}
         }
     }
-/**
- * Makes the dodo loop around a fenced area until he finds an egg (if there isnt an egg, she'll go on forever
- */
+
+    /**
+     * Makes the dodo loop around a fenced area until he finds an egg (if there isnt an egg, she'll go on forever
+     */
     public void walkToWorldEdgeClimbingOverTallerFences(){
         while (canMove()){
             turnRight();
@@ -312,38 +313,74 @@ public class MyDodo extends Dodo
                 turnLeft();
                 move();
             }
-                if (fenceAhead()){
-                    turnLeft();
-                    move();
-                }
+            if (fenceAhead()){
+                turnLeft();
+                move();
+            }
             if (onEgg()){
-            break;}
+                break;}
         }
     }
-/**
- * Makes the dodo follow a trail of eggs to her nest while picking up the eggs, to prevent her from going in loops
- */
+
+    /**
+     * Makes the dodo follow a trail of eggs to her nest while picking up the eggs, to prevent her from going in loops
+     */
     public void eggTrailToNest(){
-    while (!onNest()){
-        if(onEgg()){
-        pickUpEgg();}
-    if (eggAhead() || nestAhead()){
-    move();}
-    else {turnLeft();}
-    if (onNest()){
-    break;}
-}
-    
-}
+        while (!onNest()){
+            if(onEgg()){
+                pickUpEgg();}
+            if (eggAhead() || nestAhead()){
+                move();}
+            else {turnLeft();}
+            if (onNest()){
+                break;}
+        }
+
+    }
+
+    /**
+     * Makes the dodo navigate the maze by moving in the first direction it can see
+     * Might give the message "im stuck" sometimes
+     */
+    // public void navigateMaze(){
+        // while(!onNest()){
+            // move();
+            // if (fenceAhead()){
+                // turnRight();
+                // if (fenceAhead()){
+                    // turn180();
+                // }
+            // }
+            // if (onNest()){
+                // break;
+            // }
+        // }
+    // }
 /**
- * Makes the dodo navigate the maze by moving in the first direction it can see
- * Might give the message "im stuck" sometimes
- */
-public void navigateMaze(){
-while(!borderAhead()){
-move();
-if (fenceAhead()){
-turnRight();
-if (fenceAhead()){turn180();}}
-if (onNest()){break;}}}
+     * Makes the dodo navigate the maze by moving in the first direction it can see
+     * the dodo will attempt to hug the right wall 
+     */
+    public void navigateMaze(){
+        while (!onNest()){
+            turnRight();
+            if (fenceAhead()){
+                
+                turnLeft();
+                while (fenceAhead()){
+                
+                turnLeft();
+            }
+            }
+            move();
+            // if (fenceAhead() && !canMove()){
+                
+                // move();
+            // }
+            // if (fenceAhead()){
+                // turnLeft();
+                // move();
+            // }
+            
+        }
+    }
 }
