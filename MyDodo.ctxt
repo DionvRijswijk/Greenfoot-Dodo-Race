@@ -49,6 +49,7 @@ comment23.target=void\ navigateMaze()
 comment23.text=\r\n\ Makes\ the\ dodo\ navigate\ the\ maze\ by\ moving\ in\ the\ first\ direction\ it\ can\ see\r\n\ the\ dodo\ will\ attempt\ to\ hug\ the\ right\ wall\ \r\n
 comment24.params=
 comment24.target=void\ faceEast()
+comment24.text=\r\n\ Makes\ the\ dodo\ face\ east\ by\ making\ it\ turn\ left\ until\ it's\r\n\ looking\ east\r\n
 comment3.params=
 comment3.target=void\ move()
 comment3.text=\r\n\ Move\ one\ cell\ forward\ in\ the\ current\ direction.\r\n\ \r\n\ <P>\ Initial\:\ Dodo\ is\ somewhere\ in\ the\ world\r\n\ <P>\ Final\:\ If\ possible,\ Dodo\ has\ moved\ forward\ one\ cell\r\n\r\n

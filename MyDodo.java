@@ -383,7 +383,10 @@ public class MyDodo extends Dodo
             
         }
     }
-    
+    /**
+     * Makes the dodo face east by making it turn left until it's
+     * looking east
+     */
     public void faceEast(){
     while (getDirection()!=EAST){
         turnLeft();
