@@ -416,6 +416,14 @@ public class MyDodo extends Dodo
 
     }
     
+    public void faceDirection(int newDirection){
+        if(newDirection>=0 && newDirection<=3){
+        while (getDirection()!=newDirection){
+            turnLeft();
+        }
+    }
+    }
+    
     /**
      * Makes the dodo go to the set coordinates by
      * moving in a direction until its on the same axis as the coordinates
