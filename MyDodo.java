@@ -343,20 +343,20 @@ public class MyDodo extends Dodo
      * Might give the message "im stuck" sometimes
      */
     // public void navigateMaze(){
-        // while(!onNest()){
-            // move();
-            // if (fenceAhead()){
-                // turnRight();
-                // if (fenceAhead()){
-                    // turn180();
-                // }
-            // }
-            // if (onNest()){
-                // break;
-            // }
-        // }
+    // while(!onNest()){
+    // move();
+    // if (fenceAhead()){
+    // turnRight();
+    // if (fenceAhead()){
+    // turn180();
     // }
-/**
+    // }
+    // if (onNest()){
+    // break;
+    // }
+    // }
+    // }
+    /**
      * Makes the dodo navigate the maze by moving in the first direction it can see
      * the dodo will attempt to hug the right wall 
      */
@@ -364,33 +364,105 @@ public class MyDodo extends Dodo
         while (!onNest()){
             turnRight();
             if (fenceAhead()){
-                
+
                 turnLeft();
                 while (fenceAhead()){
-                
-                turnLeft();
-            }
+
+                    turnLeft();
+                }
             }
             move();
             // if (fenceAhead() && !canMove()){
-                
-                // move();
+
+            // move();
             // }
             // if (fenceAhead()){
-                // turnLeft();
-                // move();
+            // turnLeft();
+            // move();
             // }
-            
+
         }
     }
+
     /**
      * Makes the dodo face east by making it turn left until it's
      * looking east
      */
     public void faceEast(){
-    while (getDirection()!=EAST){
-        turnLeft();
+        while (getDirection()!=EAST){
+            turnLeft();
+        }
+
+    }
+
+    public void faceSouth(){
+        while (getDirection()!=SOUTH){
+            turnLeft();
+        }
+
+    }
+
+    public void faceWest(){
+        while (getDirection()!=WEST){
+            turnLeft();
+        }
+
     }
     
+    public void faceNorth(){
+        while (getDirection()!=NORTH){
+            turnLeft();
+        }
+
     }
+    
+    public void goToLocation(int coordX, int coordY){
+        System.out.println(getX ());
+        System.out.println(getY ());
+        while (getX()<coordX){
+            if(coordX>11 || coordX<0 || coordY>11 || coordY<0){
+            System.out.println("Coordinate out of reach");
+            break;
+        }
+            faceEast();
+            move();
+
+        }
+        while (getY()<coordY){
+                 if(coordX>11 || coordX<0 || coordY>11 || coordY<0){
+            System.out.println("Coordinate out of reach");
+            break;
+        }
+            faceSouth();
+            move();
+        }
+        while (getX()>coordX){
+                 if(coordX>11 || coordX<0 || coordY>11 || coordY<0){
+            System.out.println("Coordinate out of reach");
+            break;
+        }
+            faceWest();
+            move();
+        }
+        while (getY()<coordY){
+                 if(coordX>11 || coordX<0 || coordY>11 || coordY<0){
+            System.out.println("Coordinate out of reach");
+            break;
+        }
+            faceNorth();
+            move();
+        }
+        if(getX()==coordX && getY()==coordY){
+            faceEast();
+
+        }
+        
+        
+        System.out.println(getX ());
+        System.out.println(getY ());
+    }
+
+    // public boolean validCoordinates(int coordX, int coordY){
+        // if ()
+    // }
 }
