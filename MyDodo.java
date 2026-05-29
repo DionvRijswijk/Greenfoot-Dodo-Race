@@ -416,6 +416,10 @@ public class MyDodo extends Dodo
 
     }
     
+    /**
+     * Makes the dodo go to the set coordinates by
+     * moving in a direction until its on the same axis as the coordinates
+     */
     public void goToLocation(int coordX, int coordY){
         System.out.println(getX ());
         System.out.println(getY ());
@@ -462,7 +466,20 @@ public class MyDodo extends Dodo
         System.out.println(getY ());
     }
 
-    // public boolean validCoordinates(int coordX, int coordY){
-        // if ()
-    // }
+    /**
+     * Checks if the coordinates given are within the world border
+     * if not, it gives back an error saying "invalid coordinates" 
+     */
+    public boolean validCoordinates(int coordX, int coordY){
+        if (coordX>11 || coordX<0){
+            showError("invalid coordinates");
+        return false;
+        }
+        else if (coordY>11 || coordY<0){
+            showError("invalid coordinates");
+        return false;
+        }
+        else {return true;}
+        
+    }
 }
