@@ -408,22 +408,22 @@ public class MyDodo extends Dodo
         }
 
     }
-    
+
     public void faceNorth(){
         while (getDirection()!=NORTH){
             turnLeft();
         }
 
     }
-    
+
     public void faceDirection(int newDirection){
         if(newDirection>=0 && newDirection<=3){
-        while (getDirection()!=newDirection){
-            turnLeft();
+            while (getDirection()!=newDirection){
+                turnLeft();
+            }
         }
     }
-    }
-    
+
     /**
      * Makes the dodo go to the set coordinates by
      * moving in a direction until its on the same axis as the coordinates
@@ -433,34 +433,34 @@ public class MyDodo extends Dodo
         System.out.println(getY ());
         while (getX()<coordX){
             if(coordX>11 || coordX<0 || coordY>11 || coordY<0){
-            System.out.println("Coordinate out of reach");
-            break;
-        }
+                System.out.println("Coordinate out of reach");
+                break;
+            }
             faceEast();
             move();
 
         }
         while (getY()<coordY){
-                 if(coordX>11 || coordX<0 || coordY>11 || coordY<0){
-            System.out.println("Coordinate out of reach");
-            break;
-        }
+            if(coordX>11 || coordX<0 || coordY>11 || coordY<0){
+                System.out.println("Coordinate out of reach");
+                break;
+            }
             faceSouth();
             move();
         }
         while (getX()>coordX){
-                 if(coordX>11 || coordX<0 || coordY>11 || coordY<0){
-            System.out.println("Coordinate out of reach");
-            break;
-        }
+            if(coordX>11 || coordX<0 || coordY>11 || coordY<0){
+                System.out.println("Coordinate out of reach");
+                break;
+            }
             faceWest();
             move();
         }
         while (getY()<coordY){
-                 if(coordX>11 || coordX<0 || coordY>11 || coordY<0){
-            System.out.println("Coordinate out of reach");
-            break;
-        }
+            if(coordX>11 || coordX<0 || coordY>11 || coordY<0){
+                System.out.println("Coordinate out of reach");
+                break;
+            }
             faceNorth();
             move();
         }
@@ -468,8 +468,7 @@ public class MyDodo extends Dodo
             faceEast();
 
         }
-        
-        
+
         System.out.println(getX ());
         System.out.println(getY ());
     }
@@ -481,13 +480,52 @@ public class MyDodo extends Dodo
     public boolean validCoordinates(int coordX, int coordY){
         if (coordX>11 || coordX<0){
             showError("invalid coordinates");
-        return false;
+            return false;
         }
         else if (coordY>11 || coordY<0){
             showError("invalid coordinates");
-        return false;
+            return false;
         }
         else {return true;}
-        
+
+    }
+
+    /**
+     * Makes the dodo lay a trail pf eggs based on user input
+     */
+    public void layTrailOfEggs(int number){
+        for (int i=0; i<number; i++ ){
+            move();
+            layEgg();
+        }
+    }
+
+    /**
+     * counts how many eggs there are in a row by walking over them
+     */
+    public int countEggsInRow(){
+        int eggs=0;
+        while (canMove()){
+            if (onEgg()){
+                eggs++;
+            }
+            move();
+        }
+        return eggs;
+    }
+
+    public int countEggsInWorld(){
+
+        int worldSize= getWorld().getHeight();
+        int eggs = 0;
+        goToLocation(0,0);
+        for (int i=0; i<worldSize; i++ ){
+            goToLocation(0,i);
+            faceEast();
+            countEggsInRow();
+            eggs=eggs+countEggsInRow();
+
+        }
+        return eggs;
     }
 }
