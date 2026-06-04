@@ -427,6 +427,7 @@ public class MyDodo extends Dodo
     /**
      * Makes the dodo go to the set coordinates by
      * moving in a direction until its on the same axis as the coordinates
+     * Doesn't seem to work properly
      */
     public void goToLocation(int coordX, int coordY){
 
@@ -515,14 +516,16 @@ public class MyDodo extends Dodo
         }
         return eggs;
     }
-
+/**
+ * Makes the dodo check the entire world for how many eggs there are
+ */
     public int countEggsInWorld(){
 
         int worldSize= getWorld().getHeight();
         int eggs = 0;
         //goToLocation(0,0);
         for (int i=0; i<worldSize; i++ ){
-            goToLocation(0,i);
+            goToLocation2(0,i);
             faceEast();
             //countEggsInRow();
             eggs=eggs+countEggsInRow();
@@ -530,7 +533,9 @@ public class MyDodo extends Dodo
         }
         return eggs;
     }
-
+/**
+ * a better variant of goToLocation, doesn't get stuck in a loop
+ */
     public void goToLocation2(int coordX, int coordY){
         System.out.println(getX ());
         System.out.println(getY ());
