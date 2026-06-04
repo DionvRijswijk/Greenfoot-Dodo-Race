@@ -429,6 +429,8 @@ public class MyDodo extends Dodo
      * moving in a direction until its on the same axis as the coordinates
      */
     public void goToLocation(int coordX, int coordY){
+
+        // todo
         System.out.println(getX ());
         System.out.println(getY ());
         while (getX()<coordX){
@@ -518,14 +520,43 @@ public class MyDodo extends Dodo
 
         int worldSize= getWorld().getHeight();
         int eggs = 0;
-        goToLocation(0,0);
+        //goToLocation(0,0);
         for (int i=0; i<worldSize; i++ ){
             goToLocation(0,i);
             faceEast();
-            countEggsInRow();
+            //countEggsInRow();
             eggs=eggs+countEggsInRow();
 
         }
         return eggs;
+    }
+
+    public void goToLocation2(int coordX, int coordY){
+        System.out.println(getX ());
+        System.out.println(getY ());
+        int stappenX= coordX - getX();
+        int stappenY= coordY - getY();
+        if (validCoordinates(coordX, coordY)==false){return;}
+        if (stappenX>=0) {
+            faceEast();
+
+        }
+        else if (stappenX<=0){
+            faceWest();
+            stappenX=-stappenX;
+
+        }
+
+        jump(stappenX);
+        if (stappenY>=0) {
+            faceSouth();
+            
+
+        }
+        else if (stappenY<=0){
+            faceNorth();
+            stappenY=-stappenY;
+        }
+        jump(stappenY);
     }
 }
