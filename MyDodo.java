@@ -564,4 +564,21 @@ public class MyDodo extends Dodo
         }
         jump(stappenY);
     }
+    
+    /**
+     * Makes the dodo walk in a stair-like pattern
+     */
+    public void walkPatternStairs(){
+    for (int i=0; i<4; i++){
+        //goToLocation2(0,i);
+        faceSouth();
+        move(i);
+            faceEast();
+            move(i);
+        faceWest();
+        move(-i);
+        faceNorth();
+        move(-i);
+    }
+}
 }
