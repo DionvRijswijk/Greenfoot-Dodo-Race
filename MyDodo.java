@@ -579,6 +579,7 @@ public class MyDodo extends Dodo
         move(-i);
         faceNorth();
         move(-i);
+        
     }
 }
 
