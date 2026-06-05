@@ -581,4 +581,38 @@ public class MyDodo extends Dodo
         move(-i);
     }
 }
+
+public void walkPatternSlope(){
+    for (int i=0; i<4; i++){
+        //goToLocation2(0,i);
+        faceSouth();
+        move(i);
+            faceEast();
+            move(i);
+        faceWest();
+        move(-i);
+        faceNorth();
+        move(-i);
+    }
+}
+
+/**
+ * Makes the dodo walk in a pyramid shaped pattern
+ */
+public void walkPatternPyramid(){
+    for (int i=0; i<4; i++){
+        faceSouth();
+        move(i);
+            faceEast();
+            move(i);
+        faceWest();
+        move(-i);
+        move(-i);
+        faceEast();
+        move(i);
+        faceNorth();
+        move(-i);
+    
+}
+}
 }
