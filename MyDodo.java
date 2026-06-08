@@ -508,6 +508,7 @@ public class MyDodo extends Dodo
      */
     public int countEggsInRow(){
         int eggs=0;
+        faceEast();
         while (canMove()){
             if (onEgg()){
                 eggs++;
@@ -516,10 +517,23 @@ public class MyDodo extends Dodo
         }
         return eggs;
     }
+    
+    public int countEggsInCollumn(){
+        int eggs=0;
+        faceSouth();
+        while (canMove()){
+            if (onEgg()){
+                eggs++;
+            }
+            move();
+        }
+        return eggs;
+    }
+    
 /**
  * Makes the dodo check the entire world for how many eggs there are
  */
-    public int countEggsInWorld(){
+    public int countEggsInWorldRows(){
 
         int worldSize= getWorld().getHeight();
         int eggs = 0;
@@ -533,6 +547,22 @@ public class MyDodo extends Dodo
         }
         return eggs;
     }
+    
+    public int countEggsInWorldcollumns(){
+
+        int worldSize= getWorld().getHeight();
+        int eggs = 0;
+        //goToLocation(0,0);
+        for (int i=0; i<worldSize; i++ ){
+            goToLocation2(i,0);
+            faceSouth();
+            //countEggsInRow();
+            eggs=eggs+countEggsInCollumn();
+
+        }
+        return eggs;
+    }
+    
 /**
  * a better variant of goToLocation, doesn't get stuck in a loop
  */
@@ -615,5 +645,34 @@ public void walkPatternPyramid(){
         move(-i);
     
 }
+}
+
+public int SpotIssuesRowOrCollumn(){
+    int eggs=0;
+    int worldSizeHeight= getWorld().getHeight();
+    int worldSizeWidth= getWorld().getWidth();
+    for (int i=0; i<worldSizeHeight; i++ ){
+        goToLocation2(0,i);
+    eggs=eggs+countEggsInRow();
+    if (eggs%2!=0){
+    System.out.println(" oneven aantal eieren" );
+    return eggs;
+    }
+    else {
+    System.out.println(" even aantal eieren" );
+
+    }
+}
+for (int i=0; i<worldSizeWidth; i++ ){
+     goToLocation2(i,0);
+    countEggsInCollumn();
+    if (eggs%2!=0){
+    System.out.println(" oneven aantal eieren" );
+    return eggs;
+    }    
+    else{System.out.println(" even aantal eieren" );}
+    return eggs;
+}
+return eggs;
 }
 }
