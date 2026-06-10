@@ -656,22 +656,36 @@ public int SpotIssuesRowOrCollumn(){
     eggs=eggs+countEggsInRow();
     if (eggs%2!=0){
     System.out.println(" oneven aantal eieren" );
+    turn180();
+    while(!eggAhead()){
+    move();}
+    if (eggAhead()){
+        move();
+        pickUpEgg();
+    }
     return eggs;
     }
     else {
     System.out.println(" even aantal eieren" );
-
     }
 }
 for (int i=0; i<worldSizeWidth; i++ ){
      goToLocation2(i,0);
-    countEggsInCollumn();
+    eggs=eggs+countEggsInCollumn();
     if (eggs%2!=0){
     System.out.println(" oneven aantal eieren" );
+    turn180();
+    while(!eggAhead()){
+    move();}
+    if (eggAhead()){
+        move();
+        pickUpEgg();
+    }
     return eggs;
+    
+    
     }    
     else{System.out.println(" even aantal eieren" );}
-    return eggs;
 }
 return eggs;
 }
