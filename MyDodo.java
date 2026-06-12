@@ -647,23 +647,25 @@ public void walkPatternPyramid(){
 }
 }
 
-public int SpotIssuesRowOrCollumn(){
+
+//Vind oneven rij/collumn en noteer waar (3,4
+//onthoud de coordinaat voor X en Y
+//laat de dodo na het checken van de locatie naar die coordinaten gaan
+//dodo legt een ei
+public void SpotIssuesRowOrCollumn(){
     int eggs=0;
     int worldSizeHeight= getWorld().getHeight();
     int worldSizeWidth= getWorld().getWidth();
+     int coordinaatX = 0;
+    int coordinaatY = 0;
     for (int i=0; i<worldSizeHeight; i++ ){
         goToLocation2(0,i);
+    
     eggs=eggs+countEggsInRow();
     if (eggs%2!=0){
     System.out.println(" oneven aantal eieren" );
-    turn180();
-    while(!eggAhead()){
-    move();}
-    if (eggAhead()){
-        move();
-        pickUpEgg();
-    }
-    return eggs;
+   
+    coordinaatX=getX();    
     }
     else {
     System.out.println(" even aantal eieren" );
@@ -674,19 +676,16 @@ for (int i=0; i<worldSizeWidth; i++ ){
     eggs=eggs+countEggsInCollumn();
     if (eggs%2!=0){
     System.out.println(" oneven aantal eieren" );
-    turn180();
-    while(!eggAhead()){
-    move();}
-    if (eggAhead()){
-        move();
-        pickUpEgg();
-    }
-    return eggs;
+    coordinaatY=getY();
+  
+    
     
     
     }    
     else{System.out.println(" even aantal eieren" );}
 }
-return eggs;
+goToLocation2(coordinaatX,coordinaatY);
+
+
 }
 }
