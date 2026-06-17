@@ -715,9 +715,31 @@ goToLocation2(coordinaatX,coordinaatY);
         System.out.println("First element: " + listOfNumbers.get(1) ); 
     }
 
-    public void practiceWithListsOfSurpriseEggs( ){
-        List<SurpriseEgg>  listOfEgss = SurpriseEgg.generateListOfSurpriseEggs( 12, getWorld() );
+    /**
+     * Makes a list of 10 surprise eggs
+     */
+    public List<SurpriseEgg> makeListOfSurpriseEggs( ){
+        List<SurpriseEgg>  listOfEggs = SurpriseEgg.generateListOfSurpriseEggs( 10, getWorld() );
+        return listOfEggs;
     }
+    
+    /**
+     * prints coordinates of an egg
+     */
+    public void printCoordinatesEgg(Egg egg){
+    System.out.println(egg.getX());
+    System.out.println(egg.getY());
+    }
+    
+    /**
+     * makes 10 surprise eggs appear while printing their coordinates
+     */
+    public void makeListOfSurpriseEggsAndPrintCoordinates(){
+    for (Egg egg: makeListOfSurpriseEggs()){
+        printCoordinatesEgg(egg);
+    }
+    }
+    
 }
     
 
