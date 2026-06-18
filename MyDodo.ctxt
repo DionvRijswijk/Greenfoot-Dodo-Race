@@ -115,6 +115,7 @@ comment46.target=void\ makeListOfSurpriseEggsAndPrintCoordinates()
 comment46.text=\r\n\ makes\ 10\ surprise\ eggs\ appear\ while\ printing\ their\ coordinates\r\n
 comment47.params=
 comment47.target=void\ findValueEgg()
+comment47.text=\r\n\ Makes\ 10\ surprise\ eggs\ appear.\ The\ dodo\ will\ check\ to\ see\ which\ is\r\n\ the\ highest\ and\ print\ out\ the\ value\ of\ this\ egg\r\n
 comment5.params=
 comment5.target=void\ turn180()
 comment5.text=\r\n\ Turns\ the\ dodo\ 180\ degrees,\ making\ them\ face\ the\ other\ way\r\n

@@ -740,6 +740,10 @@ goToLocation2(coordinaatX,coordinaatY);
     }
     }
     
+    /**
+     * Makes 10 surprise eggs appear. The dodo will check to see which is
+     * the highest and print out the value of this egg
+     */
     public void findValueEgg(){
     int currentHighestEgg=-1;
     for (Egg egg: makeListOfSurpriseEggs()){
