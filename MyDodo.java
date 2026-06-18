@@ -740,6 +740,16 @@ goToLocation2(coordinaatX,coordinaatY);
     }
     }
     
+    public void findValueEgg(){
+    int currentHighestEgg=-1;
+    for (Egg egg: makeListOfSurpriseEggs()){
+        if(egg.getValue()>currentHighestEgg){
+        currentHighestEgg=egg.getValue();
+        }
+        printCoordinatesEgg(egg);
+    }
+    System.out.println(currentHighestEgg);
+    }
 }
     
 
