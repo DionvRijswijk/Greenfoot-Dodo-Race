@@ -754,6 +754,21 @@ goToLocation2(coordinaatX,coordinaatY);
     }
     System.out.println(currentHighestEgg);
     }
+    
+    /**
+     * Makes 10 surprise eggs appear. The dodo will add all the numbers together and divide that number
+     * by the amout of eggs on the map. Then it prints out the result (as a double)
+     */
+    public void findAverageValueEgg(){
+     List<SurpriseEgg> eggs =makeListOfSurpriseEggs();
+     double valueEggs=0.0;
+     
+    for (Egg egg: eggs ){
+        valueEggs=valueEggs+egg.getValue();
+    }
+    valueEggs=valueEggs/eggs.size();
+    System.out.println(valueEggs);
+    }
 }
     
 
