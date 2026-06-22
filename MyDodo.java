@@ -769,6 +769,19 @@ goToLocation2(coordinaatX,coordinaatY);
     valueEggs=valueEggs/eggs.size();
     System.out.println(valueEggs);
     }
+    
+    public void moveRandomly(){
+    for (int i=0; i<40; i++ ){
+    randomDirection();
+    faceDirection(randomDirection());
+    while (borderAhead() || fenceAhead()){
+    faceDirection(randomDirection());
+    }
+    move();
+    }
+        
+    }
+
 }
     
 
