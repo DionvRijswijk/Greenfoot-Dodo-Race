@@ -770,6 +770,10 @@ goToLocation2(coordinaatX,coordinaatY);
     System.out.println(valueEggs);
     }
     
+    /**
+     * Makes the dodo move in a random direction 40 times in a row
+     * while not getting stuck on any walls
+     */
     public void moveRandomly(){
     for (int i=0; i<40; i++ ){
     randomDirection();

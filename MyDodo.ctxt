@@ -121,6 +121,7 @@ comment48.target=void\ findAverageValueEgg()
 comment48.text=\r\n\ Makes\ 10\ surprise\ eggs\ appear.\ The\ dodo\ will\ add\ all\ the\ numbers\ together\ and\ divide\ that\ number\r\n\ by\ the\ amout\ of\ eggs\ on\ the\ map.\ Then\ it\ prints\ out\ the\ result\ (as\ a\ double)\r\n
 comment49.params=
 comment49.target=void\ moveRandomly()
+comment49.text=\r\n\ Makes\ the\ dodo\ move\ in\ a\ random\ direction\ 40\ times\ in\ a\ row\r\n\ while\ not\ getting\ stuck\ on\ any\ walls\r\n
 comment5.params=
 comment5.target=void\ turn180()
 comment5.text=\r\n\ Turns\ the\ dodo\ 180\ degrees,\ making\ them\ face\ the\ other\ way\r\n
