@@ -783,9 +783,12 @@ goToLocation2(coordinaatX,coordinaatY);
     }
     move();
     }
-        
+      getScore();  
     }
 
+    public void getScore(){
+    ((Mauritius)getWorld()).updateScore(0, 0);
+    }
 }
     
 
