@@ -789,6 +789,19 @@ goToLocation2(coordinaatX,coordinaatY);
     public void getScore(){
     ((Mauritius)getWorld()).updateScore(0, 0);
     }
+    
+    public void goToClosestEgg(){
+    getListOfEggsInWorld();
+    }
+    /**
+     * getListOfEggsInWorld() 
+     * een voor een kijken waar een ei staat
+     * ei locaties bekijken hoeveel stappen het neemt om de dodo daar heen te
+     * laten gaan
+     * xdodo locatie-xei locatie
+     * ydodo locatie-yei locatie
+     * minst aantal stappen is waar de dodo heen gaat
+     */
 }
     
 
